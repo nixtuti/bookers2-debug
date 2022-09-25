@@ -41,19 +41,25 @@
           <% end %>
         </tr>
       </table>
-      <div>
       <% @book.post_comments.each do |post_comment| %>
-        <%= image_tag post_comment.user.get_profile_image, size:"100x100" %>
-        <%= post_comment.user.name%>
-        <%= post_comment.comment %>
-        <% if @book.user == current_user %>
-          <%= link_to 'Destroy', book_post_comment_path(post_comment.book, post_comment), method: :delete, class: "btn btn-sm btn-danger" %>
-        <% end %>
-      <% end %>  
-      </div>
+      <table>
+        <tr>
+          <td>
+            <%= image_tag post_comment.user.get_profile_image, size:"100x100" %><br>
+            <%= link_to post_comment.user.name, user_path(post_comment.user.id) %>
+          </td>
+          <td>
+            <%= post_comment.comment %>
+            <% if post_comment.user == current_user %>
+            <%= link_to 'Destroy', book_post_comment_path(post_comment.book, post_comment), method: :delete, class: "btn btn-sm btn-danger" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+      <% end %>
       <div>
       <%= form_with model: [@book, @post_comment] do |f| %>
-        <%= f.text_area :comment, raws: '5' %>
+        <%= f.text_area :comment, class: "form-control", rows: '5' %><br>
         <%= f.submit "送信" %>
       <% end %>
       </div>
