@@ -1,14 +1,14 @@
-<h2><% @range %>s search for "<%= word %>"</h2>
+<h2><%= @range %>s search for "<%= @word %>"</h2>
 
 <table class='table table-hover table-inverse'>
   <% if @range == "User" %>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+      </tr>
+    </thead>
     <tbody>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-        </tr>
-      </thead>
       <% @users.each do |user| %>
         <tr>
           <td><%= image_tag user.get_profile_image, size:'50x50' %></td>
