@@ -29,27 +29,11 @@
           <% end %>
         </tr>
       </table>
-      <% @book.post_comments.each do |post_comment| %>
-      <table>
-        <tr>
-          <td>
-            <%= image_tag post_comment.user.get_profile_image, size:"100x100" %><br>
-            <%= link_to post_comment.user.name, user_path(post_comment.user.id) %>
-          </td>
-          <td>
-            <%= post_comment.comment %>
-            <% if post_comment.user == current_user %>
-            <%= link_to 'Destroy', book_post_comment_path(post_comment.book, post_comment), method: :delete, class: "btn btn-sm btn-danger" %>
-            <% end %>
-          </td>
-        </tr>
+      <table class="comments_area">
+        <%= render 'post_comments/comments', book: @book %>
       </table>
-      <% end %>
-      <div>
-      <%= form_with model: [@book, @post_comment] do |f| %>
-        <%= f.text_area :comment, class: "form-control", rows: '5' %><br>
-        <%= f.submit "送信" %>
-      <% end %>
+      <div class="new_comment">
+        <%= render 'post_comments/form', book: @book, post_comment: @post_comment %>
       </div>
     </div>
   </div>
