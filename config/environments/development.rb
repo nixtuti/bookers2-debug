@@ -74,5 +74,8 @@ Rails.application.configure do
   config.hosts.clear
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  
+  config.web_console.allowed_ips = '133.204.21.64'
+  
 end
 

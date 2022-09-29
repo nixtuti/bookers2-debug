@@ -13,7 +13,7 @@ class PostCommentsController < ApplicationController
   end
   
   def destroy
-    PostComment.find(params[:id]).destroy
+    @post_comment = PostComment.find(params[:id]).destroy
     #redirect_to book_path(params[:book_id])(非同期通信化)
     @book = Book.find(params[:book_id])
     render 'post_comments/post_comments'
