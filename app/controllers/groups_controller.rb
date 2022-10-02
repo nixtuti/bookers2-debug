@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   
   def create
     @group = Group.new(group_params)
-    @group.owner_id == current_user.id
+    @group.owner_id = current_user.id
     if @group.save
       redirect_to groups_path
     else
@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
   
   def edit
     @group = Group.find(params[:id])
-    current_user.id == @group.owner_id
+    
   end
     
   def update
@@ -46,12 +46,14 @@ class GroupsController < ApplicationController
   private
   
   def group_params
-    params.require(:group).permit(:name, :introduction, :image)
+    params.require(:group).permit(:name, :introduction, :group_image)
   end
 
   def ensure_correct_user
     @group == Group.find(params[:id])
-    
+    unless @group.owner_id == current_user.id
+      redirect_to groups_path
+    end
   end
 
 end
