@@ -18,6 +18,8 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
+    #join追加時追記
+    @group.users << current_user
     if @group.save
       redirect_to groups_path
     else
@@ -31,7 +33,7 @@ class GroupsController < ApplicationController
   end
     
   def update
-    if group.update(group_params)
+    if @group.update(group_params)
       redirect_to groups_path
     else
       render edit_group_path
@@ -39,7 +41,15 @@ class GroupsController < ApplicationController
   end
   
   def destroy
-    
+    @group = Group.find(params[:id])
+    @group.users.delete(current_user)
+    redirect_to groups_path
+  end
+  
+  def join
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    redirect_to groups_path
   end
   
   
@@ -50,7 +60,7 @@ class GroupsController < ApplicationController
   end
 
   def ensure_correct_user
-    @group == Group.find(params[:id])
+    @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
       redirect_to groups_path
     end
