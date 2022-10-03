@@ -22,7 +22,6 @@
         <tbody>
           <% @groups.each do |group| %>
             <tr>
-              <%= link_to group_path(group) do %>
               <td>
                 <%= image_tag group.get_group_image, size:'50x50' %>
               </td>
@@ -34,7 +33,6 @@
                   <%= link_to 'Edit', edit_group_path(group), class: "btn btn-sm btn-success" %>
                 <% end %>
               </td>
-              <% end %>
             </tr>
           <% end %>
         </tbody>
