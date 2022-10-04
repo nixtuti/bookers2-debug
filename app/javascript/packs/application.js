@@ -21,4 +21,6 @@ ActiveStorage.start()
 //= require rails-ujs
 
 require("chartkick") 
-require("chart.js") 
+
+import Chart from "chart.js/auto";
+global.Chart = Chart;
