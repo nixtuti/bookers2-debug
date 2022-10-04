@@ -19,3 +19,6 @@ ActiveStorage.start()
 
 //= require jquery
 //= require rails-ujs
+
+require("chartkick") 
+require("chart.js") 
