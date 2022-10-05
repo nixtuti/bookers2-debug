@@ -59,5 +59,8 @@ gem 'net-smtp'
 
 gem 'jquery-rails'
 
+gem 'chart-js-rails'
 gem 'chartkick'
 gem 'groupdate'
+
+gem 'kaminari','~> 1.2.1'

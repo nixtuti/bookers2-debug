@@ -11,7 +11,7 @@
       <h2>Books</h2>
       <%= render 'books/index', books: @books %>
       <!--<%= render 'book_index', books: @books %>-->
-      <!--<%= render '7days_chart', books: @books %>-->
+      <%= render '7days_chart', books: @books %>
       <%= form_with url: user_searches_path(@user), method: :get, local: false do |f| %>
         <%= f.date_field :created_at %>
         <%= f.submit '検索', class: 'btn btn-primary' %>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @user.books
+    @books_array = Kaminari.paginate_array(@books).page(params[:page]).per(5)
     @book = Book.new
     @today_book = @books.created_today
     @yesterday_book = @books.created_yesterday

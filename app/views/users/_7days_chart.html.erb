@@ -24,11 +24,11 @@
   </tbody>
 </table>
 
-
-<canvas id="myChart" width="200" height="100"></canvas>
-  <script type="text/javascript">
+<div>
+  <canvas id="myLineChart" width="200" height="100"></canvas>
+  <script>
   $(document).on('turbolinks:load', function() { 
-    var ctx = document.getElementById("myChart").getContext('2d');
+    var ctx = document.getElementById("myLineChart").getContext('2d');
       var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -64,3 +64,4 @@
       });
   });
   </script>
+</div>

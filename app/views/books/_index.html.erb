@@ -23,5 +23,6 @@
       <td><%= "コメント数: #{book.post_comments.count} " %></td>
     </tr>
     <% end %>
+    <%= paginate @books_array %>
   </tbody>
 </table>
