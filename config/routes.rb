@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'messages/show'
-  get 'relationships/followings'
-  get 'relationships/followers'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root :to =>"homes#top"
@@ -29,7 +27,13 @@ Rails.application.routes.draw do
   
   get 'search' => 'searches#search'
  
-  resources :messages, only: [:show, :create]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:show, :create]
+  
+  
+  #get 'messages/show'
+  #get 'relationships/followings'
+  #get 'relationships/followers'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
