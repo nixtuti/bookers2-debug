@@ -26,7 +26,6 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    
   end
 
   def index

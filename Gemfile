@@ -64,3 +64,5 @@ gem 'chartkick'
 gem 'groupdate'
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'impressionist'
