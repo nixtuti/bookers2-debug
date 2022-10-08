@@ -1,8 +1,18 @@
-<h2> @user.name さんとのチャット</h2>
-<% @messages.each do |message| %>
-  <%= message.message %>
-<% end %>
-<%= form_with model: @message do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id, value: @room.id%>
-<% end %>
+<h2>  @user.name さんとのチャット</h2>
+<div class="sontainer">
+  <div class="row">
+    <div class="col-6">
+      <% @messages.each do |m| %>
+        <div class="messages  text-center m-2">
+            <%= m.message %><br>
+        </div>
+      <% end %>
+      <div class="message-form">
+        <%= form_with model: @message do |f| %>
+          <%= f.text_field :message %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
