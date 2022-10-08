@@ -9,7 +9,7 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'books/index', books: @books %>
+      <%= render 'books/index', books: @books, books_array: @books_array %>
       <!--<%= render 'book_index', books: @books %>-->
       <!--<%= render '7days_chart', books: @books %>-->
       <%= form_with url: user_searches_path(@user), method: :get, local: false do |f| %>
