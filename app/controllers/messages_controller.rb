@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     @message.save
     redirect_to room_path(@message.room_id)
   end
