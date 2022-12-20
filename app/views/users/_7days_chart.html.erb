@@ -27,7 +27,7 @@
 <div>
   <canvas id="myLineChart" width="200" height="100"></canvas>
   <script>
-  $(document).on('turbolinks:load', function() { 
+  $(document).on('turbolinks:load', function() {
     var ctx = document.getElementById("myLineChart").getContext('2d');
       var myLineChart = new Chart(ctx, {
         type: 'line',
@@ -38,7 +38,7 @@
               label: '投稿した本の数',
               data: [<%= books.created_days_ago(6).count %>, <%= books.created_days_ago(5).count %>, <%= books.created_days_ago(4).count %>, <%= books.created_days_ago(3).count %>, <%= books.created_days_ago(2).count %>, <%= @yesterday_book.count %>, <%= @today_book.count%>],
               borderColor: "rgba(0,0,255,1)",
-              backgroundColor: "rgba(0,0,0,0)"
+              backgroundColor: "rgba(0,0,0,0)",
               fill: false
             }
           ],
